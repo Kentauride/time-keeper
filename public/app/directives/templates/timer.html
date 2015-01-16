@@ -1,0 +1,14 @@
+<div class="timer">
+    <div class="row" >
+        <div class="col-md-6">
+            <input type="text" placeholder="Description" ng-model="description">
+        </div>
+        <div class="col-md-3">
+            <input id="time-input" type="text" ng-disabled="isRunning">
+        </div>
+        <div class="col-md-3">
+            <button ng-if="isRunning" ng-click="stop()">Stop</button>
+            <button ng-if="!isRunning" ng-click="start()">Start</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+.timer {
+    width: 500px;
+    text-align: left;
+}
+
+.timer
+input {
+    width: 100%;
+}

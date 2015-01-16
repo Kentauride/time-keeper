@@ -1,0 +1,20 @@
+{
+  "name": "time-keeper",
+  "version": "0.0.1",
+  "description": "A time entry app designed to simplify keeping track of multiple tasks with minimal effort.",
+  "keywords": [
+    "time",
+    "tracking"
+  ],
+  "repository": "",
+  "homepage": "",
+  "author": "Luke McFarlane <https://github.com/lukemcfarlane>",
+  "dependencies": {
+    "express": "^4.11.0"
+  },
+  "main": "index",
+  "engines": {
+    "node": ">= 0.4.1"
+  },
+  "scripts": {}
+}

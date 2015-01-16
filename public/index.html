@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="TimeKeeper">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>TimeKeeper</title>
+
+        <link rel="stylesheet" href="app/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="app/css/main.css" />
+        <link rel="stylesheet" href="app/css/timer.css" />
+
+        <script src="app/js/jquery-2.0.3.min.js"></script>
+        <script src="app/js/angular.min.js"></script>
+        <script src="app/js/ui-bootstrap-0.1.0.min.js"></script>
+        <script src="app/js/ui-bootstrap-tpls-0.1.0.js"></script>
+        <script src="app/js/stopwatch.js"></script>
+        <script src="app/application.js"></script>
+        <script src="app/controllers/mainCtrl.js"></script>
+        <script src="app/directives/timer.js"></script>
+    </head>
+    <body ng-controller="MainCtrl">
+        <div class="main-container text-center">
+            <timer  description="t.description"
+                    elapsed-secs="t.elapsedSecs"
+                    ng-repeat="t in timers">
+        </div>
+    </body>
+</html>
