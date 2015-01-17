@@ -6,8 +6,8 @@
     "time",
     "tracking"
   ],
-  "repository": "",
-  "homepage": "",
+  "repository": "https://github.com/lukemcfarlane/time-keeper",
+  "homepage": "https://github.com/lukemcfarlane/time-keeper",
   "author": "Luke McFarlane <https://github.com/lukemcfarlane>",
   "dependencies": {
     "express": "^4.11.0"
