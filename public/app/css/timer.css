@@ -1,9 +1,11 @@
-.timer {
-    width: 500px;
-    text-align: left;
+.timer 
+.description 
+input {
+    width:300px;
 }
 
-.timer
+.timer 
+.time 
 input {
-    width: 100%;
+    width:100px;
 }
