@@ -19,9 +19,15 @@
     </head>
     <body ng-controller="MainCtrl">
         <div class="main-container text-center">
-            <timer  description="t.description"
-                    elapsed-secs="t.elapsedSecs"
-                    ng-repeat="t in timers">
+            <div class="row" ng-repeat="t in timers">
+                <div class="col-md-10">
+                    <timer  description="t.description"
+                            elapsed-secs="t.elapsedSecs"></timer>
+                </div>
+                <div class="col-md-2">
+                    <button ng-if="$last" class="btn btn-default add-timer-btn glyphicon glyphicon-plus" ng-click="addTimer()"></button>
+                </div>
+            </div>
         </div>
     </body>
 </html>

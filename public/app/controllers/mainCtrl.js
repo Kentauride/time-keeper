@@ -13,13 +13,13 @@ app.controller('MainCtrl', function($scope, $http, $interval) {
 		$scope.alerts.splice(index, 1);
 	};
 
-    $scope.addNewTimer = function() {
+    $scope.addTimer = function() {
         $scope.timers.push({
         });
     };
 
     var init = function() {
-        $scope.addNewTimer();
+        $scope.addTimer();
     };
     init();
 });
