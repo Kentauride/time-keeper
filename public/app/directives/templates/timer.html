@@ -4,7 +4,7 @@
             <input class="form-control" type="text" placeholder="Description" ng-model="description">
         </div>
         <div class="form-group time">
-            <input class="form-control" id="time-input" type="text" ng-disabled="isRunning">
+            <input class="form-control" ng-class="{ active: isRunning }" id="time-input" type="text" ng-disabled="isRunning">
         </div>
         <div class="form-group start-stop-btns">
             <button class="btn btn-default" ng-if="isRunning" ng-click="stop()">Stop</button>

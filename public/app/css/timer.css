@@ -13,3 +13,8 @@ input {
 input {
     width:100px;
 }
+
+.timer
+input.active {
+    box-shadow: 0 0 5px rgb(59, 184, 59)
+}
