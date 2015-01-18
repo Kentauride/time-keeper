@@ -18,7 +18,6 @@ app.directive('timer', function($interval) {
             _.merge($scope, $scope.instance);
 
             var stopwatch = new StopWatch(null, false);
-            $scope.isRunning = false;
             $scope.elapsedSecs = 0;
 
             var updateTimeInput = function() {
@@ -66,6 +65,8 @@ app.directive('timer', function($interval) {
                     $scope.id
                 );
             };
+
+            if($scope.isRunning) $scope.start();
 
             updateTimeInput();
             _.merge($scope.instance, $scope);

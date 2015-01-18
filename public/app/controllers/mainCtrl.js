@@ -13,7 +13,7 @@ app.controller('MainCtrl', function($scope, $http, $interval, Timer) {
 		$scope.alerts.splice(index, 1);
 	};
 
-    $scope.addTimer = function() {
+    $scope.addTimer = function(startTimingNow) {
         $scope.timers.push(
             new Timer({
                 onSave: function(id) {
@@ -31,13 +31,14 @@ app.controller('MainCtrl', function($scope, $http, $interval, Timer) {
                 },
                 onStop: function(id) {
                     console.log('Stopped ' + id);
-                }
+                },
+                running: startTimingNow
             })
         );
     };
 
     var init = function() {
-        $scope.addTimer();
+        $scope.addTimer(false);
     };
     init();
 });
