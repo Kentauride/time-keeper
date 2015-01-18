@@ -21,6 +21,13 @@ app.controller('MainCtrl', function($scope, $http, $interval, Timer) {
                 }, 
                 onStart: function(id) {
                     console.log('Started ' + id);
+                    // Stop all other timers
+                    var allOtherTimers = _.reject($scope.timers, {
+                        id: id
+                    });
+                    allOtherTimers.forEach(function(timer) {
+                        timer.stop();
+                    });
                 },
                 onStop: function(id) {
                     console.log('Stopped ' + id);

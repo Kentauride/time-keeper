@@ -51,12 +51,14 @@ app.directive('timer', function($interval) {
             };
 
             $scope.stop = function() {
-                $scope.isRunning = false;
-                stopwatch.stopTimer();
-                updateTimeInput();
-                $scope.onStop(
-                    $scope.id
-                );
+                if($scope.isRunning) {
+                    $scope.isRunning = false;
+                    stopwatch.stopTimer();
+                    updateTimeInput();
+                    $scope.onStop(
+                        $scope.id
+                    );
+                }
             };
 
             $scope.save = function() {
@@ -66,6 +68,7 @@ app.directive('timer', function($interval) {
             };
 
             updateTimeInput();
+            _.merge($scope.instance, $scope);
         },
         templateUrl: 'app/directives/templates/timer.html'
     };
