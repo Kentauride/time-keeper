@@ -2,11 +2,15 @@ body {
     background-color: #E4E2E2;
 }
 
+.main-title {
+    margin-bottom: 30px;
+}
+
 .main-container {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    width: 640px;
+    width: 800px;
 }
 
 .add-timer-btn {
@@ -23,6 +27,10 @@ body {
 
 .add-timer-btn:active {
     outline:0 !important;
+}
+
+.timer-row {
+    padding-left: 130px;
 }
 
 @media only screen and (max-width: 700px) {

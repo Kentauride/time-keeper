@@ -21,7 +21,8 @@
     </head>
     <body ng-controller="MainCtrl">
         <div class="main-container text-center">
-            <div class="row" ng-repeat="t in timers">
+            <h1 class="main-title">TimeKeeper</h1>
+            <div class="row timer-row" ng-repeat="t in timers">
                 <div class="col-md-10">
                     <timer instance="t">
                     </timer>
