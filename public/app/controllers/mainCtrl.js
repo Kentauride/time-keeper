@@ -4,7 +4,7 @@
  * @author  https: //github.com/lukemcfarlane
  * @date    Dec 2014
  */
-app.controller('MainCtrl', function($scope, $http, $interval) {
+app.controller('MainCtrl', function($scope, $http, $interval, Timer) {
 	$scope.alerts = [];
 
     $scope.timers = [];
@@ -14,8 +14,19 @@ app.controller('MainCtrl', function($scope, $http, $interval) {
 	};
 
     $scope.addTimer = function() {
-        $scope.timers.push({
-        });
+        $scope.timers.push(
+            new Timer({
+                onSave: function(id) {
+                    console.log('Saved ' + id);
+                }, 
+                onStart: function(id) {
+                    console.log('Started ' + id);
+                },
+                onStop: function(id) {
+                    console.log('Stopped ' + id);
+                }
+            })
+        );
     };
 
     var init = function() {

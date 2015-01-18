@@ -12,11 +12,11 @@ app.directive('timer', function($interval) {
         restrict: 'E',
         replace: true,
         scope: {
-            description: '&',
-            elapsedSecs: '&',
-            isRunning: '&'
+            instance: '='
         },
         controller: function($scope, $element, $window) {
+            _.merge($scope, $scope.instance);
+
             var stopwatch = new StopWatch(null, false);
             $scope.isRunning = false;
             $scope.elapsedSecs = 0;
@@ -45,12 +45,24 @@ app.directive('timer', function($interval) {
                 $scope.isRunning = true;
                 stopwatch.startTimer();
                 updateTimeInput();
+                $scope.onStart(
+                    $scope.id
+                );
             };
 
             $scope.stop = function() {
                 $scope.isRunning = false;
                 stopwatch.stopTimer();
                 updateTimeInput();
+                $scope.onStop(
+                    $scope.id
+                );
+            };
+
+            $scope.save = function() {
+                $scope.onSave(
+                    $scope.id
+                );
             };
 
             updateTimeInput();
