@@ -11,6 +11,7 @@ app.factory('Timer', function() {
         this.onStart = options.onStart;
         this.onStop = options.onStop;
         this.onSave = options.onSave;
+        this.onDelete = options.onDelete;
         this.isRunning = options.running;
     };
     return Timer;

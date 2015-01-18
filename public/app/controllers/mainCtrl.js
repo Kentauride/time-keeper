@@ -9,6 +9,15 @@ app.controller('MainCtrl', function($scope, $http, $interval, Timer) {
 
     $scope.timers = [];
 
+
+    var deleteTimer = function(id) {
+        if($scope.timers.length > 1 && confirm('Do you wish to delete this timer?')) {
+            $scope.timers = _.reject($scope.timers, { 
+                id: id 
+            });
+        }
+    };
+
 	$scope.closeAlert = function(index) {
 		$scope.alerts.splice(index, 1);
 	};
@@ -31,6 +40,9 @@ app.controller('MainCtrl', function($scope, $http, $interval, Timer) {
                 },
                 onStop: function(id) {
                     console.log('Stopped ' + id);
+                },
+                onDelete: function(id) {
+                    deleteTimer(id);
                 },
                 running: startTimingNow
             })

@@ -24,6 +24,16 @@ app.directive('timer', function($interval) {
                 $element.find('#time-input').val($scope.getDurationFormatted());
             };
 
+            var descriptionEl = $element.find('.description > input');
+            descriptionEl.bind('keydown', function(e) {
+                var backspaceKeyCode = 8;
+                if(e.keyCode ===  backspaceKeyCode) {
+                    if(descriptionEl.val() === '') {
+                        $scope.onDelete($scope.id);
+                    }
+                }
+            });
+
             var tick = function() {
                 if($scope.isRunning) {
                     $scope.elapsedSecs = stopwatch.elapsedSeconds();
