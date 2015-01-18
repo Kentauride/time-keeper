@@ -72,7 +72,9 @@ app.directive('timer', function($interval) {
 
             $scope.save = function() {
                 $scope.onSave(
-                    $scope.id
+                    $scope.id,
+                    $scope.getDurationFormatted(),
+                    $scope.description
                 );
             };
 

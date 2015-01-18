@@ -8,13 +8,24 @@ app.controller('MainCtrl', function($scope, $http, $interval, Timer) {
 	$scope.alerts = [];
 
     $scope.timers = [];
+    $scope.timeEntries = [];
 
-
-    var deleteTimer = function(id) {
-        if($scope.timers.length > 1 && confirm('Do you wish to delete this timer?')) {
+    var deleteTimer = function(id, doConfirm) {
+        if(!doConfirm || confirm('Do you wish to delete this timer?')) {
             $scope.timers = _.reject($scope.timers, { 
                 id: id 
             });
+            if($scope.timers.length === 0) $scope.addTimer(false);
+        }
+    };
+
+    var saveTimeEntry = function(id, duration, description) {
+        if(confirm('Are you sure that you wish to log this timer?')) {
+            $scope.timeEntries.push({
+                duration: duration,
+                description: description
+            });
+            deleteTimer(id, false);
         }
     };
 
@@ -25,9 +36,7 @@ app.controller('MainCtrl', function($scope, $http, $interval, Timer) {
     $scope.addTimer = function(startTimingNow) {
         $scope.timers.push(
             new Timer({
-                onSave: function(id) {
-                    console.log('Saved ' + id);
-                }, 
+                onSave: saveTimeEntry,
                 onStart: function(id) {
                     console.log('Started ' + id);
                     // Stop all other timers
@@ -42,7 +51,8 @@ app.controller('MainCtrl', function($scope, $http, $interval, Timer) {
                     console.log('Stopped ' + id);
                 },
                 onDelete: function(id) {
-                    deleteTimer(id);
+                    var doConfirm = true;
+                    deleteTimer(id, doConfirm);
                 },
                 running: startTimingNow
             })

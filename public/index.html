@@ -31,6 +31,22 @@
                     <button ng-if="$last" class="btn btn-default add-timer-btn glyphicon glyphicon-plus" ng-click="addTimer(true)"></button>
                 </div>
             </div>
+            <div class="time-entries-container">
+                <table class="table" ng-if="timeEntries.length > 0">
+                    <thead>
+                        <tr>
+                            <th>Duration</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="timeEntry in timeEntries">
+                            <td ng-bind="timeEntry.duration"></td>
+                            <td ng-bind="timeEntry.description"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </body>
 </html>
