@@ -17,12 +17,12 @@
         <script src="app/js/ui-bootstrap-tpls-0.1.0.js"></script>
         <script src="app/js/stopwatch.js"></script>
         <script src="app/application.js"></script>
-        <script src="app/controllers/mainCtrl.js"></script>
+        <script src="app/controllers/loginCtrl.js"></script>
         <script src="app/services/timerFactory.js"></script>
         <script src="app/services/sfLoginService.js"></script>
         <script src="app/directives/timer.js"></script>
     </head>
-    <body ng-controller="MainCtrl">
+    <body ng-controller="LoginCtrl">
         <nav class="navbar navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -30,39 +30,12 @@
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li>
-                            <a href="javascript:void(0)" ng-click="login()">Login</a>
-                        </li>
                     </ul>
                 </div>
             </div>
         </nav>
         <div class="main-container text-center">
-            <div class="row timer-row" ng-repeat="t in timers">
-                <div class="col-md-10">
-                    <timer instance="t">
-                    </timer>
-                </div>
-                <div class="col-md-2">
-                    <button ng-if="$last" class="btn btn-default add-timer-btn glyphicon glyphicon-plus" ng-click="addTimer(true)"></button>
-                </div>
-            </div>
-            <div class="time-entries-container">
-                <table class="table" ng-if="timeEntries.length > 0">
-                    <thead>
-                        <tr>
-                            <th>Duration</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="timeEntry in timeEntries">
-                            <td ng-bind="timeEntry.duration"></td>
-                            <td ng-bind="timeEntry.description"></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            <h1>Logging in...</h1>
         </div>
     </body>
 </html>
