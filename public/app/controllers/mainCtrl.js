@@ -10,20 +10,22 @@ app.controller('MainCtrl', function($scope, $http, $interval, Timer, SFLoginServ
     $scope.timers = [];
     $scope.timeEntries = [];
 
-    $scope.loginStatus = 'Login';
+    $scope.isLoggedIn = SFLoginService.isLoggedIn;
 
-    if(SFLoginService.isLoggedIn) {
+    if($scope.isLoggedIn) {
         var req = {
             method: 'GET',
-            url: SFLoginService.oAuthDetails.userEndpoint,
+            url: '/sfrest?resource=' + encodeURI(SFLoginService.oAuthDetails.userEndpoint),
             headers: {
-                'Authorization': 'Bearer ' + 
-                SFLoginService.oAuthDetails.accessToken
+                'Access-Token': SFLoginService.oAuthDetails.accessToken
             }
         };
         $http(req)
-            .then(function(data) {
-                debugger
+            .then(function(res) {
+                var body = JSON.parse(res.data.body);
+                $scope.currentUser = {
+                    displayName: body.display_name
+                };
             });
     }
 

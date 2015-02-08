@@ -10,7 +10,14 @@
   "homepage": "https://github.com/lukemcfarlane/time-keeper",
   "author": "Luke McFarlane <https://github.com/lukemcfarlane>",
   "dependencies": {
-    "express": "^4.11.0"
+    "aws-sign2": "^0.5.0",
+    "bl": "^0.9.4",
+    "express": "^4.11.0",
+    "hawk": "^2.3.1",
+    "json-stringify-safe": "^5.0.0",
+    "qs": "^2.3.3",
+    "request": "^2.53.0",
+    "tough-cookie": "^0.12.1"
   },
   "main": "index",
   "engines": {
