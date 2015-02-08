@@ -22,7 +22,7 @@ app.controller('MainCtrl', function($scope, $http, $interval, Timer, SFLoginServ
         };
         $http(req)
             .then(function(res) {
-                var body = JSON.parse(res.data.body);
+                var body = res.data;
                 $scope.currentUser = {
                     displayName: body.display_name
                 };
