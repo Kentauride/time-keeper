@@ -1,8 +1,8 @@
 /**
  * This file defines the AngularJS module "TimeKeeper".
  *
- * @author  https://github.com/lukemcfarlane
- * @date    Dec 2014
+ * @author  https://github.com/kentauride
+ * @date    Aug 2015
  */
 var app = angular.module('TimeKeeper', ['ui.bootstrap']);
 
@@ -14,10 +14,14 @@ function checkTime(i) {
 
 function DisplayLastSavedTime(){
 	$('#lastSaved').remove();
+	$('#storageValues').append('<div id="lastSaved"><p> Last saved: ' + localStorage.getItem("LastSave") + '</p></div>');
+}
+
+function SetLastSavedTime(){
 	var today = new Date();
 	var h = checkTime(today.getHours());
     var m = checkTime(today.getMinutes());
-	$('#storageValues').append('<div id="lastSaved"><p> Last saved: ' + h + ':' + m+ '</p></div>');
+    localStorage.setItem("LastSave", h + ':' + m);
 }
 
 function SaveTimers(){
@@ -34,6 +38,7 @@ function SaveTimers(){
 	}
 	console.log("Updated Values");
 	DisplaySavedTimers();
+	SetLastSavedTime();
 	DisplayLastSavedTime();
 }
 
@@ -69,6 +74,7 @@ function ClearSavedValues(){
 
 function Initiate(){
     DisplaySavedTimers();
+    DisplayLastSavedTime();
     StartAutoSave();
 }
 
